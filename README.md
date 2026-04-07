@@ -66,7 +66,7 @@ The ESP32-CAM captures images when triggered via serial communication and sends 
 
 ### Telemetry Output (Blynk)
 
-![Telemetry Output](blynk-telemetry.jpg)
+![Telemetry Output](blynk-telemetry.png)
 
 Real-time sensor data and distance monitoring displayed using Blynk.
 
