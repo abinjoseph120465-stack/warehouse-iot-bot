@@ -1,142 +1,92 @@
-\# IoT-Based Warehouse Robot (Prototype)
+# IoT-Based Warehouse Robot (Prototype)
 
+## Overview
 
+This project is a prototype warehouse robot that integrates line following, obstacle avoidance, IoT telemetry, and a remote camera system. It demonstrates real-time monitoring and basic autonomous behavior using embedded systems and wireless communication.
 
-\## Overview
+---
 
+## Features
 
+- Line following using multiple IR sensors  
+- Obstacle detection using ultrasonic sensor  
+- IoT telemetry using Blynk  
+- Remote image capture using ESP32-CAM and Telegram  
 
-This project is a prototype warehouse robot that combines line following, obstacle avoidance, IoT telemetry, and a remote camera system.
+---
 
+## System Architecture
 
+Sensors → Raspberry Pi Pico → Motor Control  
+↓  
+Blynk Cloud (Telemetry)  
 
-\## Features
+ESP32-CAM ← Serial Trigger ← Pico  
+↓  
+Telegram Image Upload  
 
+---
 
+## Working Principle
 
-\* Line following using multiple IR sensors
-
-\* Obstacle detection using ultrasonic sensor
-
-\* IoT telemetry using Blynk
-
-\* Remote image capture using ESP32-CAM and Telegram
-
-
-
-\## System Architecture
-
-
-
-Sensors → Raspberry Pi Pico → Motor Control
-
-↓
-
-Blynk Cloud (Telemetry)
-
-
-
-ESP32-CAM ← Serial Trigger ← Pico
-
-↓
-
-Telegram Image Upload
-
-
-
-\## Working Principle
-
-
-
-\### Line Following
-
-
-
+### Line Following
 The robot uses 5 sensors (3 analog + 2 digital) to detect the line position. A PD control algorithm adjusts motor speed to follow the path.
 
+### Obstacle Avoidance
+When an obstacle is detected within 15 cm, the robot scans left and right using a servo-mounted ultrasonic sensor and selects the clearer path.
 
+### Telemetry
+Sensor values and distance data are transmitted to Blynk for real-time monitoring.
 
-\### Obstacle Avoidance
-
-
-
-When an obstacle is detected within 15 cm, the robot scans left and right using a servo-mounted ultrasonic sensor and chooses the clearer path.
-
-
-
-\### Telemetry
-
-
-
-Sensor values and distance data are sent to Blynk for real-time monitoring.
-
-
-
-\### Camera System
-
-
-
+### Camera System
 The ESP32-CAM captures images when triggered via serial communication and sends them to Telegram.
 
+---
 
+## Limitations
 
-\## Limitations
+- No autonomous navigation (only line following)  
+- Obstacle avoidance is based on fixed movement logic  
+- No real-time image processing  
+- Mechanical design not developed using CAD  
 
+---
 
+## What I Learned
 
-\* No autonomous navigation (only line following)
+- Implementation of PD control in embedded systems  
+- Sensor calibration and normalization  
+- IoT telemetry using Blynk  
+- Memory management challenges in ESP32-CAM  
+- Serial communication between microcontrollers  
 
-\* Obstacle avoidance is based on fixed movements
+---
 
-\* No real-time image processing
+## Images
 
-\* No CAD-based mechanical design
+### Telemetry Output (Blynk)
 
+![Telemetry Output](blynk-telemetry.jpg)
 
+Real-time sensor data and distance monitoring displayed using Blynk.
 
-\## What I Learned
+### Camera Output (Telegram)
 
+![Camera Output](telegram-telemetry.jpg)
 
+Image captured by ESP32-CAM and sent to Telegram upon receiving a trigger signal.
 
-\* Implementation of PD control in embedded systems
+---
 
-\* Sensor calibration and normalization
+## Future Improvements
 
-\* IoT telemetry using Blynk
+- Implement path planning or SLAM  
+- Integrate camera-based decision making  
+- Improve obstacle avoidance with dynamic algorithms  
+- Redesign chassis using CAD and perform CFD/aerodynamic analysis  
 
-\* Memory handling issues in ESP32-CAM
+---
 
-\* Serial communication between microcontrollers
-
-
-
-\## Images
-
-
-
-(Add your images here)
-
-
-
-\## Future Improvements
-
-
-
-\* Add path planning or SLAM
-
-\* Integrate camera with decision-making
-
-\* Improve obstacle avoidance logic
-
-\* Redesign using CAD and perform CFD analysis
-
-
-
-\## Author
-
-
+## Author
 
 Abin Joseph
-
-
-
