@@ -110,12 +110,6 @@ The ESP32-CAM captures images when triggered via serial communication and sends 
 
 
 
-\## Images
-
-
-
-(Add your images here)
-
 
 
 \## Future Improvements
